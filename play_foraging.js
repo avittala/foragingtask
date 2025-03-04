@@ -627,10 +627,10 @@ function experiment_settingsRoutineEnd(snapshot) {
     psychoJS.experiment.addData('experiment_settings.stopped', globalClock.getTime());
     // Run 'End Routine' code from code_2
     time_per_block = 30;
-    block_travel_times = [3, 10];
+    block_travel_times = [2, 10];
     num_blocks = block_travel_times.length;
     mu_apples = 10;
-    mu_k = 0.88;
+    mu_k = 0.7;
     total_apples = 0;
     average_rps = [];
     
@@ -917,10 +917,8 @@ function choiceRoutineBegin(snapshot) {
     leave_flag = 0;
     too_slow_flag = 0;
     harvest_flag = 0;
-    console.log(task_timer, task_timer.getTime(), travel_time, apple_time, time_per_block)
     decision_start_time = task_timer.getTime();
     message = "";
-    
     text_6.setText(("Total: " + Math.round(total_apples, 1).toString()));
     psychoJS.experiment.addData('choice.started', globalClock.getTime());
     choiceMaxDuration = null
