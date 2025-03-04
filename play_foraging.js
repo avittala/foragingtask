@@ -626,8 +626,8 @@ function experiment_settingsRoutineEnd(snapshot) {
     }
     psychoJS.experiment.addData('experiment_settings.stopped', globalClock.getTime());
     // Run 'End Routine' code from code_2
-    time_per_block = 60;
-    block_travel_times = [1.5, 8.0];
+    time_per_block = 30;
+    block_travel_times = [2, 10];
     num_blocks = block_travel_times.length;
     mu_apples = 10;
     mu_k = 0.7;
@@ -1127,7 +1127,7 @@ function choiceRoutineEnd(snapshot) {
             }
         }
     }
-    console.log(message, time_left, winnings, num_apples);
+    console.log(message, time_left);
     reaction_time = (decision_start_time - task_timer.getTime());
     wait_time = (1.0 - reaction_time);
     console.log("Reaction time:", reaction_time, "waiting", wait_time);
@@ -1393,8 +1393,13 @@ function show_applesRoutineBegin(snapshot) {
     routineTimer.reset();
     show_applesMaxDurationReached = false;
     // update component parameters for each repeat
-    image_7.setSize([(0.1 * Number.parseInt(Math.round(winnings))), 0.1]);
-    image_7.setImage((Number.parseInt(Math.round(winnings)).toString() + ".png"));
+    if (winnings !== -1) {
+      image_7.setSize([(0.1 * Number.parseInt(Math.round(winnings))), 0.1]);
+      image_7.setImage((Number.parseInt(Math.round(winnings)).toString() + ".png"));
+    } else {
+      image_7.setSize([0.1 , 0.1]);
+      image_7.setImage((Number.parseInt(Math.round(0)).toString() + ".png"));
+    }
     psychoJS.experiment.addData('show_apples.started', globalClock.getTime());
     // skip this Routine if its 'Skip if' condition is True
     continueRoutine = continueRoutine && !((harvest_flag == 0));
@@ -1931,7 +1936,7 @@ function totalRoutineBegin(snapshot) {
     routineTimer.reset();
     totalMaxDurationReached = false;
     // update component parameters for each repeat
-    text_4.setText(((("Your score: " + Number.parseInt(util.round(total_apples)).toString()) + "\n") + "Best score: 196"));
+    text_4.setText(((("Your score: " + Number.parseInt(util.round(total_apples)).toString()) + "\n") + "Best score: 234"));
     psychoJS.experiment.addData('total.started', globalClock.getTime());
     totalMaxDuration = null
     // keep track of which components have finished
