@@ -1127,7 +1127,7 @@ function choiceRoutineEnd(snapshot) {
             }
         }
     }
-    console.log(message, time_left);
+    console.log(message, time_left, winnings, num_apples);
     reaction_time = (decision_start_time - task_timer.getTime());
     wait_time = (1.0 - reaction_time);
     console.log("Reaction time:", reaction_time, "waiting", wait_time);
