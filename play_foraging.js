@@ -626,8 +626,8 @@ function experiment_settingsRoutineEnd(snapshot) {
     }
     psychoJS.experiment.addData('experiment_settings.stopped', globalClock.getTime());
     // Run 'End Routine' code from code_2
-    time_per_block = 30;
-    block_travel_times = [2, 10];
+    time_per_block = 60;
+    block_travel_times = [1.5, 8.0];
     num_blocks = block_travel_times.length;
     mu_apples = 10;
     mu_k = 0.7;
@@ -1931,7 +1931,7 @@ function totalRoutineBegin(snapshot) {
     routineTimer.reset();
     totalMaxDurationReached = false;
     // update component parameters for each repeat
-    text_4.setText(((("Your score: " + Number.parseInt(util.round(total_apples)).toString()) + "\n") + "Best score: 234"));
+    text_4.setText(((("Your score: " + Number.parseInt(util.round(total_apples)).toString()) + "\n") + "Best score: 196"));
     psychoJS.experiment.addData('total.started', globalClock.getTime());
     totalMaxDuration = null
     // keep track of which components have finished
