@@ -26,7 +26,7 @@ const psychoJS = new PsychoJS({
 
 // open window:
 psychoJS.openWindow({
-  fullscr: true,
+  fullscr: false,
   color: new util.Color([0,0,0]),
   units: 'height',
   waitBlanking: true,
@@ -939,7 +939,7 @@ function block_settingsRoutineEnd(snapshot) {
     num_apples = apple_starts[num_apple_index];
     winnings = (- 1);
     block_rps = [];
-    task_timer = new core.CountdownTimer({"start": time_per_block});
+    task_timer = new util.CountdownTimer(time_per_block);
     travel_time = block_travel_times[blocks.thisN];
     apple_time = 1.0;
     
