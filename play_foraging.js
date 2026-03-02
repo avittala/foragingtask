@@ -118,7 +118,7 @@ async function updateInfo() {
   // store frame rate of monitor if we can measure it successfully
   expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
   if (typeof expInfo['frameRate'] !== 'undefined')
-    frameDur = 1.0 / Math.round(expInfo['frameRate']);
+    frameDur = 1.0 / util.round(expInfo['frameRate']);
   else
     frameDur = 1.0 / 60.0; // couldn't get a reliable measure so guess
 
@@ -986,7 +986,7 @@ function choiceRoutineBegin(snapshot) {
     decision_start_time = task_timer.getTime();
     message = "";
     
-    text_6.setText(("Total: " + np.round(total_apples, 1).toString()));
+    text_6.setText(("Total: " + util.round(total_apples).toString()));
     // setup some python lists for storing info about the mouse
     // current position of the mouse:
     mouse.x = [];
@@ -1251,6 +1251,7 @@ function choiceRoutineEnd(snapshot) {
     psychoJS.experiment.addData("trials.rt", reaction_time);
     psychoJS.experiment.addData("trials.travel_time", travel_time);
     psychoJS.experiment.addData("trials.block_num", blocks.thisN);
+    psychoJS.experiment.addData("trials.total_reward", total_apples);
     
     // store data for psychoJS.experiment (ExperimentHandler)
     psychoJS.experiment.addData('mouse.x', mouse.x);
@@ -1432,7 +1433,7 @@ function harvestRoutineEachFrame() {
     
     
     if (image_2.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      image_2.setPos([(0.01 * (np.random.rand() - 0.5)), (0.01 * (np.random.rand() - 0.5))], false);
+      image_2.setPos([(0.01 * (Math.random() - 0.5)), (0.01 * (Math.random() - 0.5))], false);
     }
     
     // *image_2* updates
